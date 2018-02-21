@@ -1,0 +1,88 @@
+<h1>Register</h1><br>
+
+<form #registerForm>  
+  <div class="form-group">
+    <label>Name<span style="color:red">*</span></label>
+    <input 
+      #name
+      class="form-control" 
+      type="text" 
+      name="name" 
+      required 
+      minlength="3">
+  </div>
+  <!--Error display -->
+  <!-- <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+    <div *ngIf="name.errors.required">
+      First Name is required.
+    </div>
+    <div *ngIf="name.errors.minlength">
+      First Name must be at least 3 characters long.
+    </div>
+  </div> -->
+
+  <div class="form-group">
+    <label >Email<span style="color:red">*</span></label>
+    <input 
+      #email 
+      type="text" 
+      class="form-control"  
+      name="email" 
+      required 
+      email />
+  </div>
+  <!--Error display -->
+  <!-- <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+    <div *ngIf="email.errors.required">
+      Email is required.
+    </div>
+    <div *ngIf="email.errors.email">
+      Please provide valid email address.
+    </div>
+  </div> -->
+    
+  <div class="form-group">
+    <label for="password">Password<span style="color:red">*</span></label>
+    <input 
+       #password 
+       name="password" 
+       password 
+       type="password" 
+       class="form-control" 
+       required 
+       minlength="6">
+  </div>
+  <!--Error display -->
+  <!-- <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+    <div *ngIf="password.errors.required">
+        Password is required.
+    </div>
+    <div *ngIf="password.errors.minlength">
+      Password must be at least 6 characters long and have 1 number.
+    </div>  
+  </div> -->
+
+  <div class="form-group">
+    <label for="confirm-password">Confirm Password<span style="color:red">*</span></label>
+    <input 
+      #confirmPassword 
+      name="confirm-password"  
+      type="password" 
+      class="form-control" 
+      required>
+  </div>  
+  <!--Error display -->
+  <!-- <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="alert alert-danger">
+    <div *ngIf="confirmPassword.errors.required">
+      Confirm Password is required.
+    </div>
+    <div *ngIf="confirmPassword.errors.equalTo">
+      Passwords doesn't match.
+    </div>
+  </div> -->
+
+  <button 
+    type="submit" 
+    class="btn btn-primary" 
+    >Register</button>
+  </form>
