@@ -8,14 +8,14 @@ import { User } from './../../users/user.model';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  private newUser: User;
+  private newUser: User = new User;
 
   constructor(private userService: UserService) { }
 
   ngOnInit() {
   }
 
-  registerUser(user: User) {
-    this.userService.addUser(user).subscribe();
+  registerUser(newUser: User) {
+    this.userService.addUser(newUser).subscribe();
   }
 }
