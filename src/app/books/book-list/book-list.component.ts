@@ -18,7 +18,7 @@ export class BookListComponent implements OnInit {
       .subscribe((books) => {
         this.books = books;
       }, (err: HttpErrorResponse) => {
-        alert('Backend returned code ${err.status} with message: ${err.error}');
+        alert(`Backend returned code ${err.status} with message: ${err.error}`);
       }
     );
   }

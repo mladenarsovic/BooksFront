@@ -3,17 +3,21 @@ import { Book } from './book.model';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
+import { AuthService } from './../auth/auth.service';
 
 @Injectable()
 export class BookService {
 
   private books: Book[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              private auth: AuthService) {}
 
   getBooks() {
     return new Observable((observer: Observer<any>) => {
-      this.http.get('http://localhost:8000/api/books')
+      this.http.get('http://localhost:8000/api/books', {
+        headers: this.auth.getRequestHeaders()
+      })
       .subscribe((books: any[]) => {
         this.books = books.map((book) => {
           return new Book(
