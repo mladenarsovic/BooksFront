@@ -1,8 +1,11 @@
-import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
-import { BookListComponent } from './components/book-list/book-list.component';
-import { BookDetailsComponent } from './components/book-details/book-details.component';
+import { BooksComponent } from './books/books.component';
+import { BookListComponent } from './books/book-list/book-list.component';
+import { BookDetailsComponent } from './books/book-details/book-details.component';
+import { BookItemComponent } from './books/book-list/book-item/book-item.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 
@@ -14,11 +17,13 @@ const appRoutes: Routes = [
   },
   {
     path: 'books',
-    component: BookListComponent
-  },
-  {
-    path: 'book-details',
-    component: BookDetailsComponent
+    component: BooksComponent,
+    children: [
+      {
+        path: ':id',
+        component: BookDetailsComponent
+      }
+    ]
   },
   {
     path: 'register',
@@ -32,12 +37,15 @@ const appRoutes: Routes = [
 
 @NgModule({
   declarations: [
+    BooksComponent,
     BookListComponent,
     BookDetailsComponent,
+    BookItemComponent,
     RegisterComponent,
     LoginComponent
   ],
   imports: [
+    CommonModule,
     RouterModule.forRoot(appRoutes)
   ],
   exports: [
