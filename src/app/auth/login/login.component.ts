@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
       .subscribe((token: string) => {
         this.router.navigateByUrl('/');
       }, (error) => {
-        alert(`${error.error}`);
+        alert(`You can't login!`);
       });
   }
 }
