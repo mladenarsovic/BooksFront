@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="title">Title</label>
+            <input 
+              type="text"
+              id="title"
+              ngModel
+              name="title"
+              class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="author">Author</label>
+            <input 
+              type="text"
+              id="author"
+              name="author"
+              ngModel
+              class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="publishYear">Publish Year</label>
+            <input 
+              type="number"
+              id="publishYear"
+              name="publishYear"
+              ngModel
+              class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="language">Language</label>
+            <input 
+              type="text"
+              id="language"
+              name="language"
+              ngModel
+              class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="originalLanguage">Original Language</label>
+            <input 
+              type="text"
+              id="originalLanguage"
+              name="originalLanguage"
+              ngModel
+              class="form-control">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button 
+            type="sumbit" 
+            class="btn btn-success"
+            [disabled]="!bookForm.valid">Save</button>
+          <button 
+            type="button" 
+            class="btn btn-danger"
+            (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

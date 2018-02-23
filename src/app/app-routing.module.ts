@@ -9,6 +9,7 @@ import { BookDetailsComponent } from './books/book-details/book-details.componen
 import { BookItemComponent } from './books/book-list/book-item/book-item.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { BookEditComponent } from './books/book-edit/book-edit.component';
 
 const appRoutes: Routes = [
   {
@@ -20,6 +21,10 @@ const appRoutes: Routes = [
     path: 'books',
     component: BooksComponent,
     children: [
+      {
+        path: 'new',
+        component: BookEditComponent
+      },
       {
         path: ':id',
         component: BookDetailsComponent
@@ -43,7 +48,8 @@ const appRoutes: Routes = [
     BookDetailsComponent,
     BookItemComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    BookEditComponent
   ],
   imports: [
     CommonModule,

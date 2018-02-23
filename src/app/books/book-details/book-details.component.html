@@ -31,4 +31,16 @@
       Original language: {{ book.originalLanguage }}
     </p>
   </div>
+</div>
+<div *ngIf="auth.isAuthenticated" class="row">
+  <div class="col-xs-12">
+    <button 
+      type="button" 
+      class="btn btn-primary"
+      (click)="onBookUpdate()">Update Book</button>
+    <button 
+      type="button" 
+      class="btn btn-danger"
+      (click)="onRemoveBook()">Remove Book</button>
+  </div>
 </div>   

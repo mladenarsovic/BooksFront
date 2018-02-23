@@ -8,7 +8,7 @@ import { AuthService } from './../auth/auth.service';
 @Injectable()
 export class BookService {
 
-  private books: Book[];
+  private books: Book[] = [];
 
   constructor(private http: HttpClient,
               private auth: AuthService) {}
@@ -18,8 +18,8 @@ export class BookService {
       this.http.get('http://localhost:8000/api/books', {
         headers: this.auth.getRequestHeaders()
       })
-      .subscribe((books: any[]) => {
-        this.books = books.map((book) => {
+      .subscribe((books: any) => {
+        this.books = books.data.map((book) => {
           return new Book(
             book.id,
             book.title,
@@ -30,7 +30,7 @@ export class BookService {
           );
         });
         observer.next(this.books);
-        return observer.complete;
+        return observer.complete();
       });
     });
   }

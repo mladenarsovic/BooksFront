@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
+import { Router } from '@angular/router';
+import { AuthService } from './../auth/auth.service';
 import { User } from './user.model';
 
 @Injectable()
@@ -9,11 +11,13 @@ export class UserService {
 
   private users: User[];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              private router: Router,
+              private auth: AuthService) {}
 
-  addUser(user: User) {
+  addUser(user) {
     return new Observable((observer: Observer<any>) => {
-      this.http.post('http://localhost:8000/api/users', {
+      this.http.post('http://localhost:8000/api/register', {
         name: user.name,
         email: user.email,
         password: user.password
@@ -24,11 +28,19 @@ export class UserService {
           newUser.email,
           newUser.password
         );
+
         this.users.push(registeredUser);
         observer.next(registeredUser);
         return observer.complete();
       }, (err) => {
             alert(`You can't add new user!`);
+         });
+      // User is loged in and redirected to books page
+      this.auth.login(user.email, user.password)
+        .subscribe((token: string) => {
+          this.router.navigateByUrl('/');
+         }, (error) => {
+           alert(`${error.error}`);
          });
     });
   }

@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 import { Book } from './../book.model';
 import { BookService } from './../book.service';
+import { AuthService } from './../../auth/auth.service';
 
 @Component({
   selector: 'app-book-details',
@@ -14,7 +15,8 @@ export class BookDetailsComponent implements OnInit {
   id: number;
 
   constructor(private bookService: BookService,
-              private route: ActivatedRoute) {}
+              private route: ActivatedRoute,
+              private auth: AuthService) {}
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -23,6 +25,14 @@ export class BookDetailsComponent implements OnInit {
         this.book = this.bookService.getBook(this.id);
       }
     );
+  }
+
+  onBookUpdate() {
+
+  }
+
+  onRemoveBook() {
+
   }
 
 }
