@@ -13,7 +13,7 @@ export class AuthService {
     const token = window.localStorage.getItem('token');
     this.isAuthenticated = !!token;
  }
-
+ // User login after autentication on backend
  login(email: string, password: string) {
    return new Observable((observer: Observer<any>) => {
      this.http.post('http://localhost:8000/api/login', {
@@ -30,13 +30,13 @@ export class AuthService {
       });
    });
  }
-
+ // User logout
  logout() {
    window.localStorage.removeItem('token');
    this.isAuthenticated = false;
    this.router.navigateByUrl('books');
  }
-
+// Setting http headers
  getRequestHeaders() {
    const token = window.localStorage.getItem('token');
    return new HttpHeaders().set('Authorization', `Bearer ${token}`);

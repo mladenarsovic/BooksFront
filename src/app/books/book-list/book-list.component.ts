@@ -28,11 +28,29 @@ export class BookListComponent implements OnInit {
       }
     );
   }
-
+  // Displaying create new book form
   onNewBook() {
     if (this.auth.isAuthenticated) {
       this.router.navigateByUrl('/books/new');
     }
+  }
+  // Filter book list by book title
+  onSearchTitle(title) {
+    this.bookService.searchBookByTitle(title)
+      .subscribe((books: Book[]) => {
+        this.books = books;
+      }, (error) => {
+        alert(`Server returned code: ${error.status} with message: ${error.error}`);
+      });
+  }
+  // Filter book list by book title
+  onSearchYear(year) {
+    this.bookService.searchBookByYear(year)
+      .subscribe((books: Book[]) => {
+        this.books = books;
+      }, (error) => {
+        alert(`Server returned code: ${error.status} with message: ${error.error}`);
+      });
   }
 
 }

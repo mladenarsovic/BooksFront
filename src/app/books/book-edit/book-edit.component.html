@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-xs-12">
-    <form #bookForm="ngForm" (ngSubmit)="onSubmit(bookForm)">
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
       <div class="row">
         <div class="col-xs-12">
           <div class="form-group">
@@ -8,8 +8,7 @@
             <input 
               type="text"
               id="title"
-              ngModel
-              name="title"
+              formControlName="title"
               class="form-control"
               required>
           </div>
@@ -22,8 +21,7 @@
             <input 
               type="text"
               id="author"
-              name="author"
-              ngModel
+              formControlName="author"
               class="form-control"
               required>
           </div>
@@ -34,10 +32,9 @@
           <div class="form-group">
             <label for="publishYear">Publish Year</label>
             <input 
-              type="number"
+              type="text"
               id="publishYear"
-              name="publishYear"
-              ngModel
+              formControlName="publishYear"
               class="form-control"
               required>
           </div>
@@ -50,8 +47,7 @@
             <input 
               type="text"
               id="language"
-              name="language"
-              ngModel
+              formControlName="language"
               class="form-control"
               required>
           </div>
@@ -64,8 +60,7 @@
             <input 
               type="text"
               id="originalLanguage"
-              name="originalLanguage"
-              ngModel
+              formControlName="originalLanguage"
               class="form-control"
               required>
           </div>

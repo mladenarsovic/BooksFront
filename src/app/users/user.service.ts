@@ -33,12 +33,12 @@ export class UserService {
          });
          this.router.navigateByUrl('books');
       // User is loged in and redirected to books page after registration
-      // this.auth.login(user.email, user.password)
-      //   .subscribe((token: string) => {
-      //     this.router.navigateByUrl('books');
-      //    }, (error) => {
-      //      alert(`${error.error}`);
-      //    });
+      this.auth.login(user.email, user.password)
+        .subscribe((token: string) => {
+          this.router.navigateByUrl('books');
+         }, (error) => {
+           alert(`${error.error}`);
+         });
     });
   }
 }

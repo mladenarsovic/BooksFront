@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Book } from './../book.model';
 import { BookService } from './../book.service';
@@ -16,7 +16,8 @@ export class BookDetailsComponent implements OnInit {
 
   constructor(private bookService: BookService,
               private route: ActivatedRoute,
-              private auth: AuthService) {}
+              private auth: AuthService,
+              private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -28,11 +29,18 @@ export class BookDetailsComponent implements OnInit {
   }
 
   onBookUpdate() {
-    this.bookService.updateBook(this.book);
+    this.bookService.updateBook(this.id, this.book)
+      .subscribe((editedBook: Book) => {
+        this.book = editedBook;
+      });
   }
 
   onRemoveBook() {
-    this.bookService.removeBook(this.book);
+    this.bookService.removeBook(this.book).subscribe();
+  }
+
+  onBookEdit() {
+    this.router.navigateByUrl(`books/${this.id}/edit`);
   }
 
 }
