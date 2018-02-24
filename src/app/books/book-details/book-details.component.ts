@@ -28,11 +28,11 @@ export class BookDetailsComponent implements OnInit {
   }
 
   onBookUpdate() {
-
+    this.bookService.updateBook(this.book);
   }
 
   onRemoveBook() {
-
+    this.bookService.removeBook(this.book);
   }
 
 }

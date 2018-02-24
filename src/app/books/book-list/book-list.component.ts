@@ -11,7 +11,7 @@ import { Book } from './../book.model';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
-  public books: Book[] = [];
+  books: Book[] = [];
 
   constructor(private bookService: BookService,
               private auth: AuthService,
@@ -31,7 +31,7 @@ export class BookListComponent implements OnInit {
 
   onNewBook() {
     if (this.auth.isAuthenticated) {
-      this.router.navigate(['new', {relativeTo: this.route}]);
+      this.router.navigateByUrl('/books/new');
     }
   }
 

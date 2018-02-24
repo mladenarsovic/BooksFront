@@ -1,12 +1,12 @@
 export class Book {
 
   constructor(
-    id?: number,
-    title?: string,
-    author?: string,
-    publishYear?: string,
-    language?: string,
-    originalLanguage?: string
+    public id?: number,
+    public title?: string,
+    public author?: string,
+    public publishYear?: string,
+    public language?: string,
+    public originalLanguage?: string
   ) {}
 }
 

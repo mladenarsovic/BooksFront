@@ -5,6 +5,7 @@
       *ngFor="let bookItem of books; let i = index"
       [book]="bookItem"
       [index]="i"></app-book-item>
+      <br>
     <button
       *ngIf="auth.isAuthenticated" 
       type="button" 

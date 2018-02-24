@@ -9,8 +9,6 @@ import { User } from './user.model';
 @Injectable()
 export class UserService {
 
-  private users: User[];
-
   constructor(private http: HttpClient,
               private router: Router,
               private auth: AuthService) {}
@@ -28,20 +26,19 @@ export class UserService {
           newUser.email,
           newUser.password
         );
-
-        this.users.push(registeredUser);
         observer.next(registeredUser);
         return observer.complete();
       }, (err) => {
             alert(`You can't add new user!`);
          });
-      // User is loged in and redirected to books page
-      this.auth.login(user.email, user.password)
-        .subscribe((token: string) => {
-          this.router.navigateByUrl('/');
-         }, (error) => {
-           alert(`${error.error}`);
-         });
+         this.router.navigateByUrl('books');
+      // User is loged in and redirected to books page after registration
+      // this.auth.login(user.email, user.password)
+      //   .subscribe((token: string) => {
+      //     this.router.navigateByUrl('books');
+      //    }, (error) => {
+      //      alert(`${error.error}`);
+      //    });
     });
   }
 }

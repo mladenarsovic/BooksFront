@@ -28,6 +28,10 @@ const appRoutes: Routes = [
       {
         path: ':id',
         component: BookDetailsComponent
+      },
+      {
+        path: ':id/edit',
+        component: BookEditComponent
       }
     ]
   },
