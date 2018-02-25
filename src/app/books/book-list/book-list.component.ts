@@ -52,5 +52,14 @@ export class BookListComponent implements OnInit {
         alert(`Server returned code: ${error.status} with message: ${error.error}`);
       });
   }
+// Fetch next page of book list
+  nextPage() {
+    this.bookService.nextPage()
+      .subscribe((books: Book[]) => {
+        this.books = books;
+      }, (error) => {
+        alert(`Error with code ${error.status} and status ${error.error}`);
+      });
+  }
 
 }

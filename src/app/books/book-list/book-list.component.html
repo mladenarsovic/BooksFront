@@ -11,25 +11,30 @@
     </div>
     <br>
     <div class="row">
-        <div class="col-xs-12">
-          <form #searchForm="ngForm" (ngSubmit)="onSearchYear(year.value)" class="form-inline mt-2 mt-md-0">
-            <input #year class="form-control mr-sm-2" type="text" required name="term">
-            <button class="btn btn-outline-danger my-2 my-sm-0"  type="submit">Search by year</button>         
-          </form>   
-        </div>      
-      </div>
+      <div class="col-xs-12">
+        <form #searchForm="ngForm" (ngSubmit)="onSearchYear(year.value)" class="form-inline mt-2 mt-md-0">
+          <input #year class="form-control mr-sm-2" type="text" required name="term">
+          <button class="btn btn-outline-danger my-2 my-sm-0"  type="submit">Search by year</button>         
+        </form>   
+      </div>      
+    </div>
     <br>
     <hr>
     <app-book-item
       *ngFor="let bookItem of books; let i = index"
       [book]="bookItem"
       [index]="i"></app-book-item>
-      <br>
+    <br>
     <button
       *ngIf="auth.isAuthenticated" 
       type="button" 
       class="btn btn-success"
       (click)="onNewBook()">New Book</button>
+    <button 
+      class="btn btn-primary" 
+      type="button" 
+      (click)="nextPage()" 
+      [disabled]="!bookService.noMorePages()">Next >></button>    
   </div>
 </div>
 

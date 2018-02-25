@@ -12,7 +12,7 @@ export class UserService {
   constructor(private http: HttpClient,
               private router: Router,
               private auth: AuthService) {}
-
+  // Register new user
   addUser(user) {
     return new Observable((observer: Observer<any>) => {
       this.http.post('http://localhost:8000/api/register', {

@@ -8,6 +8,8 @@ import { AuthService } from './../auth/auth.service';
 
 @Injectable()
 export class BookService {
+  public currentPage: number;
+  public lastPage: number;
 
   books: Book[] = [];
 
@@ -33,6 +35,35 @@ export class BookService {
           return observer.complete();
       });
     });
+  }
+  // Fetching next page of book list
+  nextPage() {
+    return new Observable((observer: Observer<any>) => {
+      this.http.get('http://localhost:8000/api/books?page=' + this.currentPage++)
+        .subscribe((books: any) => {
+          this.lastPage = books.last_page;
+          this.currentPage = books.current_page;
+          this.books = books.data.map((book) => {
+            return new Book(
+              book.id,
+              book.title,
+              book.author,
+              book.publish_year,
+              book.language,
+              book.original_language
+            );
+          });
+          observer.next(this.books);
+          return observer.complete();
+        });
+    });
+  }
+  // Stop fetching book list pages
+  noMorePages() {
+    if (this.currentPage < this.lastPage) {
+      return true;
+    }
+    return false;
   }
   // Return single book from books array
   getBook(index: number) {
