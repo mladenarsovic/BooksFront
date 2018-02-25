@@ -4,13 +4,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
-import { BookService } from './books/book.service';
-import { UserService } from './users/user.service';
-import { AuthService } from './auth/auth.service';
+import { BookService } from './shared/services/book.service';
+import { UserService } from './shared/services/user.service';
+import { AuthService } from './shared/services/auth.service';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [

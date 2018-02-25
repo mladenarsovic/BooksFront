@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { Book } from './book.model';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
-import { AuthService } from './../auth/auth.service';
+import { AuthService } from './auth.service';
+import { Book } from './../models/book.model';
 
 @Injectable()
 export class BookService {

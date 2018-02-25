@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
-import { BookService } from './../book.service';
+import { BookService } from './../../../shared/services/book.service';
 
 @Component({
   selector: 'app-book-edit',

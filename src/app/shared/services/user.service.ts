@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { Router } from '@angular/router';
-import { AuthService } from './../auth/auth.service';
-import { User } from './user.model';
+import { AuthService } from './auth.service';
+import { User } from './../models/user.model';
 
 @Injectable()
 export class UserService {

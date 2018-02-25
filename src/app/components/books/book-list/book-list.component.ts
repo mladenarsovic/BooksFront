@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
-import { BookService } from './../book.service';
-import { AuthService } from './../../auth/auth.service';
-import { Book } from './../book.model';
+
+import { BookService } from './../../../shared/services/book.service';
+import { AuthService } from './../../../shared/services/auth.service';
+import { Book } from './../../../shared/models/book.model';
 
 @Component({
   selector: 'app-book-list',

@@ -3,13 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { BooksComponent } from './books/books.component';
-import { BookListComponent } from './books/book-list/book-list.component';
-import { BookDetailsComponent } from './books/book-details/book-details.component';
-import { BookItemComponent } from './books/book-list/book-item/book-item.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { BookEditComponent } from './books/book-edit/book-edit.component';
+import { BooksComponent } from './components/books/books.component';
+import { BookListComponent } from './components/books/book-list/book-list.component';
+import { BookDetailsComponent } from './components/books/book-details/book-details.component';
+import { BookItemComponent } from './components/books/book-list/book-item/book-item.component';
+import { RegisterComponent } from './components/auth/register/register.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { BookEditComponent } from './components/books/book-edit/book-edit.component';
+
 
 const appRoutes: Routes = [
   {
